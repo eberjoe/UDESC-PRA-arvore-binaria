@@ -1,0 +1,1 @@
+Estrutura básica de árvore binária proposta na disciplina de Projeto de Arquivos, ministrada pelo Prof. Allan Rodrigo Leite, e melhorada por mim.
