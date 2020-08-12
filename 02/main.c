@@ -33,14 +33,6 @@ int main() {
     No* no7 = adiciona_no(&a, no6, 7);
     no6->direita = no7;
 
-    printf("In-order: ");
-    percorrer_InOrder(a.raiz, mostrar);
-    printf("\nPre-order: ");
-    percorrer_PreOrder(a.raiz, mostrar);
-    printf("\nPos-order: ");
-    percorrer_PosOrder(a.raiz, mostrar);
-    printf("\n");
-    
     return 1;
 }
 
