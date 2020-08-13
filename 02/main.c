@@ -34,6 +34,7 @@ int main() {
     no6->direita = no7;
 
     percorrer_largura(a.raiz, mostrar);
+    printf("\n");
     
     return 1;
 }
