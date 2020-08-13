@@ -35,6 +35,8 @@ int main() {
 
     percorrer_largura(a.raiz, mostrar);
     printf("\n");
+
+    limpa_subarvore(&a, a.raiz);
     
     return 1;
 }

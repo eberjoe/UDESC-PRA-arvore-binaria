@@ -14,3 +14,4 @@ int arvore_vazia(Arvore *arvore);
 No* adiciona_no(Arvore *arvore, No *pai, int valor);
 void remove_no(Arvore *arvore, No *no);
 void percorrer_largura(No *no, void (*callback) (int));
+void limpa_subarvore(Arvore *arvore, No *no);

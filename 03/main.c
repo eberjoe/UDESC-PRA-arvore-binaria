@@ -38,6 +38,8 @@ int main() {
     scanf("%d", &in);
     printf("O custo da busca é %d \n", custo_busca(&a, in));
 
+    limpa_subarvore(&a, a.raiz);
+
     return 1;
 }
 

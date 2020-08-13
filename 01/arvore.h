@@ -16,3 +16,4 @@ void remove_no(Arvore *arvore, No *no);
 void percorrer_InOrder(No *no, void (*callback) (int));
 void percorrer_PreOrder(No *no, void (*callback) (int));
 void percorrer_PosOrder(No *no, void (*callback) (int));
+void limpa_subarvore(Arvore *arvore, No *no);

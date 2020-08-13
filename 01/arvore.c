@@ -16,20 +16,20 @@ No* adiciona_no(Arvore *arvore, No *pai, int valor) {
     no->esquerda = NULL;
     no->direita = NULL;
     no->valor = valor;
-    if (pai == NULL) {
+    if (!pai) {
         arvore->raiz = no;
     }
     return no;
 }
 
 void remove_no(Arvore *arvore, No *no) {
-    if (no->esquerda != NULL) {
+    if (no->esquerda) {
         remove_no(arvore, no->esquerda); 
     }
-    if (no->direita != NULL) {
+    if (no->direita) {
         remove_no(arvore, no->direita);
     }
-    if (no->pai == NULL) {
+    if (!no->pai) {
         arvore->raiz = NULL;
     } else {
         if (no->pai->esquerda == no) {
@@ -42,7 +42,7 @@ void remove_no(Arvore *arvore, No *no) {
 }
 
 void percorrer_InOrder(No *no, void (*callback) (int)) {
-    if (no != NULL) {
+    if (no) {
         percorrer_InOrder(no->esquerda, callback);
         callback(no->valor);
         percorrer_InOrder(no->direita, callback);
@@ -50,7 +50,7 @@ void percorrer_InOrder(No *no, void (*callback) (int)) {
 }
 
 void percorrer_PreOrder(No *no, void (*callback) (int)) {
-    if (no != NULL) {
+    if (no) {
         callback(no->valor);
         percorrer_PreOrder(no->esquerda, callback);
         percorrer_PreOrder(no->direita, callback);
@@ -58,9 +58,17 @@ void percorrer_PreOrder(No *no, void (*callback) (int)) {
 }
 
 void percorrer_PosOrder(No *no, void (*callback) (int)) {
-    if (no != NULL) {
+    if (no) {
         percorrer_PosOrder(no->esquerda, callback);
         percorrer_PosOrder(no->direita, callback);
         callback(no->valor);
+    }
+}
+
+void limpa_subarvore(Arvore *arvore, No *no) {
+    if (no) {
+        limpa_subarvore(arvore, no->esquerda);
+        limpa_subarvore(arvore, no->direita);
+        remove_no(arvore, no);
     }
 }

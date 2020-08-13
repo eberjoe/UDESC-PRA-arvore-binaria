@@ -40,6 +40,8 @@ int main() {
     printf("\nPos-order: ");
     percorrer_PosOrder(a.raiz, mostrar);
     printf("\n");
+
+    limpa_subarvore(&a, a.raiz);
     
     return 1;
 }

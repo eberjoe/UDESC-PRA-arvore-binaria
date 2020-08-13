@@ -17,20 +17,20 @@ No* adiciona_no(Arvore *arvore, No *pai, int valor) {
     no->esquerda = NULL;
     no->direita = NULL;
     no->valor = valor;
-    if (pai == NULL) {
+    if (!pai) {
         arvore->raiz = no;
     }
     return no;
 }
 
 void remove_no(Arvore *arvore, No *no) {
-    if (no->esquerda != NULL) {
+    if (no->esquerda) {
         remove_no(arvore, no->esquerda); 
     }
-    if (no->direita != NULL) {
+    if (no->direita) {
         remove_no(arvore, no->direita);
     }
-    if (no->pai == NULL) {
+    if (!no->pai) {
         arvore->raiz = NULL;
     } else {
         if (no->pai->esquerda == no) {
@@ -56,5 +56,13 @@ void percorrer_largura(No *no, void (*callback) (int)) {
             insereNoFim(&fila, &no->direita);
         }
         callback(no->valor);
+    }
+}
+
+void limpa_subarvore(Arvore *arvore, No *no) {
+    if (no) {
+        limpa_subarvore(arvore, no->esquerda);
+        limpa_subarvore(arvore, no->direita);
+        remove_no(arvore, no);
     }
 }

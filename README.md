@@ -1,1 +1,1 @@
-Exercícios sobre árvore binária propostos na disciplina de Projeto de Arquivos, ministrada pelo Prof. Allan Rodrigo Leite.
+Exercícios sobre estruturas de árvore propostos na disciplina de Projeto de Arquivos, ministrada pelo Prof. Allan Rodrigo Leite.

@@ -17,3 +17,4 @@ void percorrer_InOrder(No *no, void (*callback) (int));
 void percorrer_PreOrder(No *no, void (*callback) (int));
 void percorrer_PosOrder(No *no, void (*callback) (int));
 int custo_busca(Arvore *arvore, int chave);
+void limpa_subarvore(Arvore *arvore, No *no);
