@@ -33,6 +33,8 @@ int main() {
     No* no7 = adiciona_no(&a, no6, 7);
     no6->direita = no7;
 
+    percorrer_largura(a.raiz, mostrar);
+    
     return 1;
 }
 

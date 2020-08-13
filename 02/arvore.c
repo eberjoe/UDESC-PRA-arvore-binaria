@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "arvore.h"
+#include "lista.h"
 
 void inicializa_arvore(Arvore *arvore) {
     arvore->raiz = NULL;
@@ -41,26 +42,19 @@ void remove_no(Arvore *arvore, No *no) {
     free(no);
 }
 
-void percorrer_InOrder(No *no, void (*callback) (int)) {
-    if (no != NULL) {
-        percorrer_InOrder(no->esquerda, callback);
-        callback(no->valor);
-        percorrer_InOrder(no->direita, callback);
-    }
-}
-
-void percorrer_PreOrder(No *no, void (*callback) (int)) {
-    if (no != NULL) {
-        callback(no->valor);
-        percorrer_PreOrder(no->esquerda, callback);
-        percorrer_PreOrder(no->direita, callback);
-    }
-}
-
-void percorrer_PosOrder(No *no, void (*callback) (int)) {
-    if (no != NULL) {
-        percorrer_PosOrder(no->esquerda, callback);
-        percorrer_PosOrder(no->direita, callback);
+void percorrer_largura(No *no, void (*callback) (int)) {
+    LDE fila;
+    inicializa_LDE(&fila, sizeof(No*));
+    insereNoFim(&fila, &no);
+    while (!LDE_vazia(&fila)) {
+        No *no;
+        removeDoInicio(&fila, &no);
+        if (no->esquerda) {
+            insereNoFim(&fila, &no->esquerda);
+        }
+        if (no->direita) {
+            insereNoFim(&fila, &no->direita);
+        }
         callback(no->valor);
     }
 }
